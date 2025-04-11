@@ -22,7 +22,6 @@ shape = SubResource("RectangleShape2D_4flbx")
 position_smoothing_enabled = true
 
 [node name="Control" type="Control" parent="Camera2D"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +66,7 @@ frame = 1
 
 [node name="Label2" type="Label" parent="Camera2D/Control"]
 texture_filter = 1
+layout_mode = 0
 offset_left = -552.0
 offset_top = -276.0
 offset_right = 516.0
@@ -85,6 +85,7 @@ otherwise, you lose
 
 [node name="Label3" type="Label" parent="Camera2D/Control"]
 texture_filter = 1
+layout_mode = 0
 offset_left = -81.0
 offset_top = -57.0
 offset_right = 987.0
@@ -101,6 +102,7 @@ these outlines"
 
 [node name="Label4" type="Label" parent="Camera2D/Control"]
 texture_filter = 1
+layout_mode = 0
 offset_left = -537.0
 offset_top = 262.0
 offset_right = 531.0
@@ -131,5 +133,73 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_i3pqv")
 theme_override_font_sizes/font_size = 12
 text = "report back"
+
+[node name="win" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/win"]
+layout_mode = 0
+offset_left = -652.0
+offset_top = -359.0
+offset_right = -562.0
+offset_bottom = -269.0
+scale = Vector2(14.32, 8.08)
+texture = ExtResource("1_4flbx")
+
+[node name="Label" type="Label" parent="Camera2D/win"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -524.0
+offset_top = -46.0
+offset_right = 544.0
+offset_bottom = 166.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 112
+text = "you win!"
+horizontal_alignment = 1
+
+[node name="lose" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/lose"]
+layout_mode = 0
+offset_left = -652.0
+offset_top = -359.0
+offset_right = -562.0
+offset_bottom = -269.0
+scale = Vector2(14.32, 8.08)
+texture = ExtResource("1_4flbx")
+
+[node name="Label" type="Label" parent="Camera2D/lose"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -524.0
+offset_top = -46.0
+offset_right = 544.0
+offset_bottom = 166.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 112
+text = "you lose!"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]

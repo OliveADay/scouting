@@ -30,4 +30,4 @@ rectAttempts = 10000
 texture_filter = 1
 tile_set = SubResource("TileSet_aqk2v")
 
-[node name="Player" parent="." instance=ExtResource("3_tlwt5")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_tlwt5")]
