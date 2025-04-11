@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://xejhamav4414"]
+
+[ext_resource type="Texture2D" uid="uid://b0swnn8dp5nnk" path="res://hidingsoldier-Sheet.png" id="1_siw8g"]
+[ext_resource type="Script" uid="uid://beqeare1r874e" path="res://soldier.gd" id="2_ba3fx"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ba3fx"]
+points = PackedVector2Array(-10, -6, 10, -6, 16, -1, 13, 11, 3, 12, -7, 11, -12, 5, -16, 0)
+
+[node name="Sold" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_ba3fx")
+
+[node name="Soldier" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("1_siw8g")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_ba3fx")
+
+[connection signal="input_event" from="." to="." method="_on_sold_input_event"]

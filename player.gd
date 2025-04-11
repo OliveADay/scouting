@@ -14,3 +14,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	move_and_slide()
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.

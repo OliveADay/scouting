@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6qwbgmbu27fo"]
+[gd_scene load_steps=7 format=3 uid="uid://b6qwbgmbu27fo"]
 
 [ext_resource type="Texture2D" uid="uid://capkqo8e3lan6" path="res://player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://oru734pahivi" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="FontFile" uid="uid://bwkiu14r3lf1r" path="res://04B_11_.TTF" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://ckxkefbv5wci8" path="res://control.gd" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://b0swnn8dp5nnk" path="res://hidingsoldier-Sheet.png" id="4_hqtel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(30, 30)
@@ -17,3 +20,116 @@ shape = SubResource("RectangleShape2D_4flbx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Control" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_sweqy")
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -652.0
+offset_top = -359.0
+offset_right = -562.0
+offset_bottom = -269.0
+scale = Vector2(14.32, 8.08)
+texture = ExtResource("1_4flbx")
+
+[node name="Label" type="Label" parent="Camera2D/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -510.0
+offset_top = -324.0
+offset_right = 558.0
+offset_bottom = -112.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 39
+text = "catch all of these hiding soldiers
+"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control"]
+texture_filter = 1
+position = Vector2(434, -202)
+scale = Vector2(10, 10)
+texture = ExtResource("4_hqtel")
+hframes = 2
+frame = 1
+
+[node name="Label2" type="Label" parent="Camera2D/Control"]
+texture_filter = 1
+offset_left = -552.0
+offset_top = -276.0
+offset_right = 516.0
+offset_bottom = -64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 31
+text = "and report back to base. If you find
+all of them, your company survives
+and you win
+otherwise, you lose
+"
+
+[node name="Label3" type="Label" parent="Camera2D/Control"]
+texture_filter = 1
+offset_left = -81.0
+offset_top = -57.0
+offset_right = 987.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 31
+text = "it'll won't be easy, since
+in the wild they don't have
+these outlines"
+
+[node name="Label4" type="Label" parent="Camera2D/Control"]
+texture_filter = 1
+offset_left = -537.0
+offset_top = 262.0
+offset_right = 531.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 39
+text = "press any button to continue"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Camera2D"]
+texture_filter = 1
+offset_left = -54.0
+offset_top = -42.0
+offset_right = 65.0
+offset_bottom = -22.0
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.627451, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.427451, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0.227451, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 12
+text = "report back"
+
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]

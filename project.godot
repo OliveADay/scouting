@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="scouting"
+run/main_scene="uid://btjarm1qdokjc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+soldier=""
 
 [input]
 

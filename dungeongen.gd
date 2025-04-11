@@ -5,6 +5,7 @@ var rectTests: Array[Rect2i] = []
 var rectTests_inter: Array[Rect2i] = []
 @export var rectAttempts = 5000
 var rectMinsandMaxes = [-104,104, 7, 20]
+var upperBoundtoSoldierspawn = 5
 signal nextLevel()
 
 # Called when the node enters the scene tree for the first time.
@@ -33,6 +34,15 @@ func _ready() -> void:
 			
 		if !colliding_other_rects and nextTo_Otherrects:
 			rectTests.append(recti)
+			var chance = randi_range(0,upperBoundtoSoldierspawn)
+			if chance == 0:
+				var soldier = ResourceLoader.load("res://soldier.tscn").instantiate()
+				
+				var xPos = rng.randi_range(recti.position.x,recti.position.x + recti.size.x)
+				var yPos = rng.randi_range(recti.position.y, recti.size.y+recti.position.y)
+				add_child(soldier)
+				soldier.global_position = Vector2(xPos*32,yPos*32)
+				print('soldier')
 		
 			#var rectinner = Rect2i(recti.position.x+1, recti.position.y+1, recti.size.x-2, recti.size.y-2)
 			#rectTests_inter.append(rectinner)
@@ -52,6 +62,7 @@ func _ready() -> void:
 			var inRect = false
 			for i in range(rectTests.size()):				
 				if rectTests[i].has_point(Vector2i(x-128,y-64)):
+							
 					if rectTests[i] == rect_1:
 						$TileMapLayer.set_cell(Vector2i(x-128,y-64), 0, Vector2i(1,1))
 					else:
