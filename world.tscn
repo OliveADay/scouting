@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://btjarm1qdokjc"]
+[gd_scene load_steps=6 format=3 uid="uid://btjarm1qdokjc"]
+
+[ext_resource type="Script" uid="uid://jb2ugxhltpuw" path="res://dungeongen.gd" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://d3s2d2nhsg00j" path="res://tile-Sheet.png" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://b6qwbgmbu27fo" path="res://player.tscn" id="3_tlwt5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
+texture = ExtResource("2_fj7yv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_aqk2v"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_f3sb7")
+rectAttempts = 10000
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_aqk2v")
+
+[node name="Player" parent="." instance=ExtResource("3_tlwt5")]
