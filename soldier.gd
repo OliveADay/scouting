@@ -9,12 +9,10 @@ func _ready() -> void:
 	position += posOff
 
 func _process(delta: float) -> void:
-	pass
-
-func _on_sold_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(event.is_pressed()):
-		pressed = true
-		visible = false
+	if mousein:
+		if Input.is_action_just_pressed('mouse_1'):
+			pressed = true
+			visible = false
 
 
 func _on_mouse_entered() -> void:
