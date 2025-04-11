@@ -6,7 +6,7 @@
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ba3fx"]
 points = PackedVector2Array(-10, -6, 10, -6, 16, -1, 13, 11, 3, 12, -7, 11, -12, 5, -16, 0)
 
-[node name="Sold" type="RigidBody2D"]
+[node name="Sold" type="RigidBody2D" groups=["soldier"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_ba3fx")
